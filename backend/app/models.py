@@ -17,6 +17,7 @@ class User(Base):
 class UserSession(Base):
     __tablename__ = 'sessions'
 
+
     id = Column(Integer, primary_key=True, index=True)
     phone = Column(String, unique=True, nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
