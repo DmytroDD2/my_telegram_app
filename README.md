@@ -49,6 +49,7 @@
 6**Run frontend:**
    cd fronted
     ```bash
+    npm install
     npm start 
     ```
 ## Documentation
