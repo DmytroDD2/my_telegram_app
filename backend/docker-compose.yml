@@ -1,0 +1,66 @@
+#version: '3.7'
+#
+#services:
+#  nudges:
+#    build: .
+#    command: uvicorn app.main:app --host 0.0.0.0 --port 80
+#    volumes:
+#      - .:/usr/src/personalised_nudges
+#    ports:
+#      - 80:80
+#    depends_on:
+#      - db
+#
+#  db:
+#    image: postgres:12.0-alpine
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data/
+#    environment:
+#      - POSTGRES_USER=username
+#      - POSTGRES_PASSWORD=password
+#      - POSTGRES_DB=nudges
+#    expose:
+#      - 5432
+#
+#volumes:
+#  postgres_data:
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: '3.8'
+
+services:
+  telegram-service:
+    build: .
+    command: /bin/bash -c "alembic upgrade head&& uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - "8002:8000"
+    environment:
+     - DATABASE_URL=postgresql://ps_user:password@ps-user:5432/telegram_db
+    depends_on:
+      - ps-user
+
+  ps-user:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ps_user
+      POSTGRES_DB: telegram_db
+    ports:
+      - "5433:5432"
+
+
