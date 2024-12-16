@@ -1,0 +1,60 @@
+.chat_item {
+    min-height: 150px;
+    width: 100%;
+    border: solid white;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 25px;
+    padding: 0;
+  }
+  
+  .chat_item:hover {
+    background-color: bisque;
+    color: black;
+  }
+  
+  .list_of_chats {
+    overflow: auto; 
+    max-width: 300px;
+  }
+  
+  .list_of_chats::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .list_of_chats {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    border: 2px solid;
+  }
+  
+  .centr_bottom {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  
+  .centr_bottom button {
+    min-width: 90px;
+    margin: 5px;
+  }
+  
+  .chat_button:hover,
+  .centr_bottom button:hover {
+    background-color: grey;
+    color: white;
+  }
+  
+  .chat_button:active,
+  .centr_bottom button:active {
+    background-color: grey;
+    color: white;
+  }
+  
+  .list_connencts {
+    display: flex;
+    border: 2px solid white;
+    max-height: 90vh;
+    width: 100%; 
+  }

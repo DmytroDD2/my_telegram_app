@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axiosInstance from "../axiosInstance";
 import ChatMessages from "../ChatMessages/ChatMessages";
 
-import "./GetChatsApp.css";
+import styles from "./GetChatsApp.module.css";
 import { use } from "react";
 import AuthForm from "../AuthForm";
 import TelegramAuth from "../TelegramAuth";
@@ -69,27 +69,25 @@ const GetChatsApp = ({acess}) => {
             <button onClick={logout}>Вийти</button>
         </div>
         ) : (
-            <div>
-                <button className="chat-button" onClick={logout}>Вийти</button>
-                <button  className="chat-button" onClick={() => logoutTelegram()}>Вийти з Telegram</button>
-                <div className="Telegram">
-                    <section className="list_of-cats">
+            <>
+                <button className={styles.chat_button} onClick={logout}>Вийти</button>
+                <button  className={styles.chat_button} onClick={() => logoutTelegram()}>Вийти з Telegram</button>
+                <div className={styles.list_connencts}>
+                    <section className={styles.list_of_chats}>
                         {chats.map((chat, index) => (
                             <section 
                                 key={index}
-                                className="chat-item"
+                                className={styles.chat_item}
                                 onClick={() => handleChatClick(chat.id)}
                             >
                                 <strong>{chat.name}</strong> (ID: {chat.id})
                             </section>
                         ))}
                     </section>
-
-                    <section>
-                        {messageTrue && <ChatMessages chatId={messageTrue} />}
-                    </section>
+                    {messageTrue && <ChatMessages chatId={messageTrue} />}
+                  
                 </div>
-            </div>
+            </>
         )}
     </div>
 

@@ -3,13 +3,13 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000',
-    timeout: 10000,
+    timeout: 15000,
 });
 
 axiosInstance.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('access_token'); 
-        if (token) { http://backend:8000/login
+        if (token) { http://lacalhost:8000/login
             config.headers['Authorization'] = `Bearer ${token}`; 
         }
      
