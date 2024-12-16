@@ -13,7 +13,7 @@ const AuthForm = ({acess}) => {
         setSuccess('');
 
         try {
-            const response = await axios.post('/api/register', {
+            const response = await axios.post('http://localhost:8000/register', {
                 username,
                 password,
             });

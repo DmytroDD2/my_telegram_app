@@ -10,8 +10,8 @@ load_dotenv()
 
 
 # SQLALCHEMY_DATABASE_URL = "postgresql://username:password@db/nudges"
-SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
-
+# SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
+SQLALCHEMY_DATABASE_URL = "postgresql://username:password@db:5432/nudges"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

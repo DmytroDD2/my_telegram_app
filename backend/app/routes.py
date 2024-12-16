@@ -2,12 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from sqlalchemy.orm import Session
 
-from app.contextTelegram import TelegramClientManager
-from app.crud import create_user, create_or_update_session,get_session_by_id, \
+from contextTelegram import TelegramClientManager
+from crud import create_user, create_or_update_session,get_session_by_id, \
     get_user_by_name, verify_password, delete_session_from_db
-from app.db import get_db
-from app.schemas import PhoneNumber, VerifyTelegramRequest, UserRegis, UserToken
-from app.security import create_access_token, verify_token
+from db import get_db
+from schemas import PhoneNumber, VerifyTelegramRequest, UserRegis, UserToken
+from security import create_access_token, verify_token
 from fastapi.security import HTTPAuthorizationCredentials
 
 

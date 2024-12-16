@@ -3,12 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 
 
-from .routes import router as auth_router
+from routes import router as auth_router
 app = FastAPI(docs_url="/docs", redoc_url=None)
 
 origins = [
-
     "http://localhost:3000",
+    "http://frontend:3000",
+    "http://localhost:80",
     "http://127.0.0.1:3000",
 
 
